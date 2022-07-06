@@ -20,8 +20,8 @@ const getStyles = () => {
         },
         image: {
             display: 'block',
-            maxHeight: 30,
-            maxWidth: 30,
+            maxHeight: 25,
+            maxWidth: 25,
             height: 'auto',
             width: 'auto',
             marginLeft: 10
@@ -37,15 +37,15 @@ const getStyles = () => {
 
 const Button = props => {
 
-    const {title, imageSrc, iconName, onClick} = props
+    const {title, image, icon, onClick} = props
 
     // Variables
 
     const styles = getStyles()
 
     const hasTitle = title != null
-    const hasImage = imageSrc != null
-    const hasIcon = iconName != null
+    const hasImage = image != null
+    const hasIcon = icon != null
 
     return (
         <div style={styles.root} onClick={onClick}>
@@ -55,10 +55,10 @@ const Button = props => {
                 </p>
             : null}
             {hasImage ? 
-                <img style={styles.title} style={styles.image}/>
+                <img src={image} style={styles.image}/>
             : null}
             {true ? 
-                <i className={'bi bi-link'} style={styles.icon} />
+                <i className={icon} style={styles.icon} />
             : null}
         </div>
     )

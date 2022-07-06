@@ -45,7 +45,6 @@ const getStyles = () => {
             alignItems: 'center',
             justifyContent: 'flex-start',
             width: '100%',
-            marginBottom: 20,
         },
         rowTitle: {
             fontSize: fontSizes.l,
@@ -57,9 +56,9 @@ const getStyles = () => {
             display: 'block',
             width: 'auto',
             height: 'auto',
-            maxWidth: 50,
-            maxHeight: 50,
-            marginRight: 20
+            maxWidth: 40,
+            maxHeight: 40,
+            marginRight: 10
         },
         bodyImage: {
             display: 'block',
@@ -72,14 +71,15 @@ const getStyles = () => {
         bodyText: {
             fontSize: fontSizes.m,
             fontWeight: fontWeights.m,
-            color: colors.ts
+            color: colors.ts,
+            marginTop: 20
         }
     }
 }
 
 const List = props => {
 
-    const {title, rows, hasButton=true} = props
+    const {title, rows, buttonTitle, buttonIcon, buttonImage} = props
 
     // State
 
@@ -89,14 +89,17 @@ const List = props => {
 
     const styles = getStyles()
 
+    const hasButton = buttonTitle != null
+    const hasBody = row => row.body != null
+
     // Functions
 
     const onClickHeader = () => {
         setIsVisible(curr => !curr)
     }
 
-    const onClickShowProject = row => {
-        window.open(row.link)
+    const onClickButton = row => {
+        row.onClick()
     }
 
     return (
@@ -118,18 +121,21 @@ const List = props => {
                                 <div style={{marginLeft: 'auto'}}>
                                     {hasButton ?
                                         <Button
-                                            title={'Show Project'}
-                                            iconName={'bi bi-link-45deg'}
-                                            onClick={() => onClickShowProject(row)}
+                                            title={buttonTitle}
+                                            icon={buttonIcon}
+                                            image={buttonImage}
+                                            onClick={() => onClickButton(row)}
                                         />
                                     : null}
 
                                 </div>
                             </div>
                             <img src={row.imageSrc} style={styles.bodyImage}/>
-                            <p style={styles.bodyText}>
-                                {row.body}
-                            </p>
+                            {hasBody(row) ? 
+                                <p style={styles.bodyText}>
+                                    {row.body}
+                                </p>
+                            : null}
                         </div>
                     ))}
                 </div>

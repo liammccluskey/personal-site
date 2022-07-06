@@ -9,7 +9,7 @@ const colors = {
 }
 
 const fontSizes = {
-    xl: 28,
+    xl: 24,
     l: 20,
     m: 18,
     s: 16,
@@ -17,7 +17,7 @@ const fontSizes = {
 }
 
 const fontWeights = {
-    l: 700,
+    l: 600,
     m: 500,
     s: 400
 }
