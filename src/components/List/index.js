@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {colors, fontSizes, fontWeights} from '../../styles'
+import {Button} from '../Button'
 
 const getStyles = () => {
     return {
@@ -42,11 +43,14 @@ const getStyles = () => {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'flex-start',
+            width: '100%',
+            marginBottom: 20,
         },
         rowTitle: {
             fontSize: fontSizes.l,
             fontWeight: fontWeights.m,
-            color: colors.tp
+            color: colors.tp,
+            marginRight: 10
         },
         icon: {
             display: 'block',
@@ -74,7 +78,7 @@ const getStyles = () => {
 
 const List = props => {
 
-    const {title, rows} = props
+    const {title, rows, hasButton=true} = props
 
     // State
 
@@ -88,6 +92,10 @@ const List = props => {
 
     const onClickHeader = () => {
         setIsVisible(curr => !curr)
+    }
+
+    const onClickShowProject = row => {
+        window.open(row.link)
     }
 
     return (
@@ -106,6 +114,16 @@ const List = props => {
                                 <h1 style={styles.rowTitle}>
                                     {row.title}
                                 </h1>
+                                <div style={{marginLeft: 'auto'}}>
+                                    {hasButton ?
+                                        <Button
+                                            title={'Show Project'}
+                                            iconName={'bi bi-link'}
+                                            onClick={() => onClickShowProject(row)}
+                                        />
+                                    : null}
+
+                                </div>
                             </div>
                             <img src={row.imageSrc} style={styles.bodyImage}/>
                             <p style={styles.bodyText}>

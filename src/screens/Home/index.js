@@ -21,7 +21,7 @@ const getStyles = () => {
             justifyContent: 'space-between',
             borderBottom: '1px solid black',
             backgroundColor: 'white',
-            padding: 15,
+            padding: 20,
             position: 'sticky'
         },
         headerTitle: {
@@ -37,7 +37,8 @@ const getStyles = () => {
             justifyContent: 'flex-start',
             width: '100%',
             maxWidth: 800,
-            alignSelf: 'center'
+            alignSelf: 'center',
+            boxSizing: 'border-box'
         }
     }
 }
@@ -53,18 +54,21 @@ const Home = () => {
         rows: [
             {
                 title: 'Ergsync',
+                link: 'https://ergsync.com',
                 iconSrc: require('../../assets/logo-ergsync.png'),
                 imageSrc: '',
                 body: 'Web application that allows rowing athletes to connect their Concept2 device and join live group workout sessions, easily track their progress over time, and join a community of other rowers'
             },
             {
                 title: 'Puzzled - Chess Trainer',
+                link: 'https://apps.apple.com/us/app/puzzled-chess-trainer/id1493090358',
                 iconSrc: require('../../assets/logo-puzzledchesstrainer.jpg'),
                 imageSrc: '',
                 body: 'Published iOS application that allows users to practice chess puzzles, track their progress, and compete against other players. All user data is stored locally, and in the cloud with Firebase.',
             },
             {
                 title: 'Reduced React',
+                link: 'https://reducedreact.com',
                 iconSrc: require('../../assets/logo-react.png'),
                 imageSrc: '',
                 body: 'Web application that allows developers to build and simulate React Native applications from simplified JSX code.'
