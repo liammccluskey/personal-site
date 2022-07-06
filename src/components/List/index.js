@@ -10,7 +10,8 @@ const getStyles = () => {
             alignItems: 'stretch',
             justifyContent: 'flex-start',
             border: `1px solid ${colors.bc}`,
-            borderRadius: 10
+            borderRadius: 10,
+            backgroundColor: colors.bgcl
         },
         header: {
             display: 'flex',
@@ -118,7 +119,7 @@ const List = props => {
                                     {hasButton ?
                                         <Button
                                             title={'Show Project'}
-                                            iconName={'bi bi-link'}
+                                            iconName={'bi bi-link-45deg'}
                                             onClick={() => onClickShowProject(row)}
                                         />
                                     : null}

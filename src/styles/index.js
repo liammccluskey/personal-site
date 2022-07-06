@@ -1,5 +1,6 @@
 const colors = {
-    bgc: 'white',
+    bgc: 'rgba(243,242,239,255)',
+    bgcl: 'white',
     tp: 'black',
     ts: 'rgb(40, 40, 40)',
     tt: 'rgb(100, 100, 100)',

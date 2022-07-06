@@ -22,7 +22,8 @@ const getStyles = () => {
             borderBottom: '1px solid black',
             backgroundColor: 'white',
             padding: 20,
-            position: 'sticky'
+            position: 'sticky', top: 0,
+            backgroundColor: colors.bgcl
         },
         headerTitle: {
             fontSize: fontSizes.xl,
@@ -84,6 +85,8 @@ const Home = () => {
                 </h1>
             </div>
             <div style={styles.body}>
+                <List {...projectsList} />
+                <br /><br />
                 <List {...projectsList} />
             </div>
         </div>
