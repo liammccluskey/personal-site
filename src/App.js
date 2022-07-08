@@ -27,7 +27,7 @@ function App() {
       <div style={styles.root}>
         <Navbar />
         <Switch>
-          <Route exact path='/'>
+          <Route exact path='/'> 
             <Home />
           </Route>
         </Switch>

@@ -38,7 +38,7 @@ const Home = () => {
             {
                 title: 'Rutgers University - New Brunswick',
                 onClick: downloadTranscript,
-                iconSrc: require('../../assets/logo-rutgers.png'),
+                imageSrc: require('../../assets/logo-rutgers.png'),
                 body: 'B.S. Computer and Electrical Engineering, GPA : 3.2'
             }
         ]
@@ -53,21 +53,18 @@ const Home = () => {
                 title: 'Ergsync',
                 onClick: () => window.open('https://ergsync.com'),
                 iconSrc: require('../../assets/logo-ergsync.png'),
-                imageSrc: '',
                 body: 'Web application that allows rowing athletes to connect their Concept2 device and join live group workout sessions, easily track their progress over time, and join a community of other rowers'
             },
             {
                 title: 'Puzzled - Chess Trainer',
                 onClick: () => window.open('https://apps.apple.com/us/app/puzzled-chess-trainer/id1493090358'),
                 iconSrc: require('../../assets/logo-puzzledchesstrainer.jpg'),
-                imageSrc: '',
                 body: 'Published iOS application that allows users to practice chess puzzles, track their progress, and compete against other players. All user data is stored locally, and in the cloud with Firebase.',
             },
             {
                 title: 'Reduced React',
                 onClick: () => window.open('https://reducedreact.com'),
                 iconSrc: require('../../assets/logo-react.png'),
-                imageSrc: '',
                 body: 'Web application that allows developers to build and simulate React Native applications from simplified JSX code.'
             },
         ]
@@ -88,8 +85,7 @@ const Home = () => {
     const languagesList = {
         title: 'Languages',
         rows: [
-            { title: 'Javascript' },
-            { title: 'Python' }
+            { title: 'Javascript' }
         ]
     }
 
@@ -102,7 +98,6 @@ const Home = () => {
                 title: 'Cover Letter Generator',
                 iconSrc: require('../../assets/icon-codeslash.png'),
                 onClick: () => window.open('https://github.com/liammccluskey/cover_letter_generator'),
-                body: 'Bash script that I use to generate cover letters for each company to which I apply. It takes as input the position to which I am applying and the name of the company, and outputs the formatted pdf of the custom built cover letter.'
             }
         ]
     }

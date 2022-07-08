@@ -67,6 +67,7 @@ const getStyles = () => {
             maxWidth: 200,
             maxHeight: 200,
             alignSelf: 'center',
+            marginTop: 20
         },
         bodyText: {
             fontSize: fontSizes.m,
@@ -91,6 +92,7 @@ const List = props => {
 
     const hasButton = buttonTitle != null
     const hasBody = row => row.body != null
+    const hasBodyImage = row => row.imageSrc != null
 
     // Functions
 
@@ -130,7 +132,9 @@ const List = props => {
 
                                 </div>
                             </div>
-                            <img src={row.imageSrc} style={styles.bodyImage}/>
+                            {hasBodyImage(row) ? 
+                                <img src={row.imageSrc} style={styles.bodyImage}/>
+                            : null}
                             {hasBody(row) ? 
                                 <p style={styles.bodyText}>
                                     {row.body}

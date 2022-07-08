@@ -19,6 +19,11 @@ const getStyles = () => {
             fontSize: fontSizes.xl,
             fontWeight: fontWeights.l,
             color: colors.tp
+        },
+        link: {
+            fontSize: fontSizes.l,
+            fontWeight: fontWeights.l,
+            color: colors.tt
         }
     }
 }
@@ -33,6 +38,9 @@ const Navbar = () => {
         <div style={styles.header}>
             <h1 style={styles.headerTitle}>
                 Liam Mccluskey
+            </h1>
+            <h1 style={styles.link}>
+                liammail100@gmail.com
             </h1>
         </div>
     )
