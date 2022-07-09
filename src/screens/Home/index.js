@@ -39,7 +39,7 @@ const Home = () => {
                 title: 'Rutgers University - New Brunswick',
                 onClick: downloadTranscript,
                 imageSrc: require('../../assets/logo-rutgers.png'),
-                body: 'B.S. Computer and Electrical Engineering, GPA : 3.2'
+                body: 'B.S. Computer and Electrical Engineering, GPA : 3.32'
             }
         ]
     }
