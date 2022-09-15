@@ -85,7 +85,8 @@ const Home = () => {
     const languagesList = {
         title: 'Languages',
         rows: [
-            { title: 'Javascript' }
+            { title: 'Javascript' },
+            { title: 'Python' }
         ]
     }
 
