@@ -94,16 +94,12 @@ const Home = () => {
         title: 'Utility Scripts',
         buttonTitle: 'View',
         buttonImage: require('../../assets/logo-github.png'),
-        rows: [
-            {
-                title: 'Cover Letter Generator',
-                iconSrc: require('../../assets/icon-codeslash.png'),
-                onClick: () => window.open('https://github.com/liammccluskey/cover_letter_generator'),
-            }
+        rows: [ 
         ]
     }
 
     return (
+
         <div style={styles.body}>
             <List {...educationList}/>
             <br /><br />
@@ -113,7 +109,6 @@ const Home = () => {
             <br /><br />
             <List {...languagesList} />
             <br /><br />
-            <List {...scriptsList} />
         </div>
     )
 }
