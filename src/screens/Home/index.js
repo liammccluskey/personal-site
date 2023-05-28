@@ -50,6 +50,12 @@ const Home = () => {
         buttonIcon: 'bi bi-link-45deg',
         rows: [
             {
+                title: 'Blackbox Solution Corporation',
+                onClick: () => window.open('https://blackboxsolution.co'),
+                iconSrc: require('../../assets/logo-blackbox-solution.png'),
+                body: 'C Corporation with a website that allows users to submit their web application ideas to be built by our team at Blackbox Solution',
+            },
+            {
                 title: 'Ergsync',
                 onClick: () => window.open('https://ergsync.com'),
                 iconSrc: require('../../assets/logo-ergsync.png'),
