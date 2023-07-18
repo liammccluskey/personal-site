@@ -1,39 +1,20 @@
-import {Home} from './screens/Home'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import {colors} from './styles'
-import {Navbar} from './components/Navbar'
+import {Provider} from 'react-redux'
 
-const getStyles = () => {
- return {
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    justifyContent: 'flex-start',
-    height: '100vh',
-    width: '100vw',
-    overflow: 'scroll',
-    backgroundColor: colors.bgc
-  },
- }
-}
+import {store} from './redux/configureStore'
+import {ThemeProvider} from './containers/ThemeProvider'
+import {RouterProvider} from './containers/RouterProvider'
+import { CssProvider } from './containers/CssProvider'
 
-function App() {
-
-  const styles = getStyles()
-
+const App = props => {
   return (
-    <Router>
-      <div style={styles.root}>
-        <Navbar />
-        <Switch>
-          <Route exact path='/'> 
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  )
+    <Provider store={store}>
+      <ThemeProvider>
+          <CssProvider>
+                <RouterProvider />
+          </CssProvider>
+      </ThemeProvider>
+    </Provider>
+  );
 }
 
 export default App
