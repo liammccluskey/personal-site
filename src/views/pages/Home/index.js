@@ -87,9 +87,9 @@ const Projects = [
         link: 'https://apps.apple.com/us/app/puzzled-chess-trainer/id1493090358',
         title: 'Puzzled - Chess Trainer',
         subtitle: 'iOS Application',
-        description: 'Published iOS application that allows users to practice chess puzzles, track their progress, compete against other players, and explore openings. All user data is stored locally, and in the cloud with Firebase.',
+        description: 'Published iOS application that allows users to practice chess puzzles, track their progress, compete against other players, and explore openings.',
         imageSrc: require('../../../assets/screenshot-puzzledchesstrainer.png'),
-        tools: ['Swift', 'Firebase'],
+        tools: ['Swift', 'XCode', 'Core Data', 'Firebase'],
     },
     {
         link: 'https://reducedreact.com',
@@ -129,7 +129,7 @@ export const HomeComponent = props => {
                     <div className='left-container'>
                         <div className='float-container tile-container'>
                             <h3 className='title'>Education</h3>
-                            <h4>{Education.title}</h4>
+                            <h4 className='main-text'>{Education.title}</h4>
                             <p className='secondary-text'>{Education.subtitle}</p>
                             <p className='secondary-text'>{`GPA: ${Education.gpa}`}</p>
                         </div>
@@ -233,6 +233,7 @@ const Container = styled.div`
         align-items: stretch;
         width: 250px;
         margin-right: 75px;
+        overflow: scroll;
     }
     & .right-container {
         padding: 40px 0px;
@@ -260,7 +261,7 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: stretch;
-
+        overflow: visible;
     }
     & .tile-container .title {
         margin-bottom: 20px;
@@ -268,6 +269,12 @@ const Container = styled.div`
 
     & .secondary-text {
         color: ${p => p.theme.textSecondary};
+        margin-bottom: 5px;
+    }
+
+    & .main-text {
+        color: ${p => p.theme.textMain};
+        margin-bottom: 5px;
     }
 
     & .title-container {
@@ -291,11 +298,16 @@ const Container = styled.div`
         flex-direction: column;
         align-items: stretch;
         padding: 20px;
-        margin-right: 30px;
+        margin-right: 15px;
         margin-bottom: 30px;
+        box-sizing: border-box;
+    }
+    & .project-container:nth-child(even) {
+        margin-right: 0px;
+        margin-left: 15px;
     }
     &.semi-mobile .project-container {
-        margin-right: 0px;
+        margin: 0px;
     }
     & .project-container img {
         border-radius: 20px;
