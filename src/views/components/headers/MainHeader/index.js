@@ -10,10 +10,16 @@ import { LinksMenu } from '../LinksMenu'
 const PageLinks = [
     {
         name: 'Home',
-        url: '',
+        url: '/',
         id: '',
         icon: 'bi-house'
     },
+    {
+        name: 'Contact Me',
+        url: '/contact',
+        id: 'contact',
+        icon: 'bi-mailbox'
+    }
 ]
 
 export const MainHeaderComponent = props => {
