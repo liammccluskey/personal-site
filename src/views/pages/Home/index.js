@@ -12,6 +12,7 @@ import { MainHeader } from '../../components/headers/MainHeader'
 import { Button } from '../../components/common/Button'
 import {TileIndicator} from '../../components/common/TileIndicator'
 import {PillLabel} from '../../components/common/PillLabel'
+import {ActionLink} from '../../components/common/ActionLink'
 
 const Education = {
     title: 'Rutgers University - New Brunswick',
@@ -108,12 +109,16 @@ export const HomeComponent = props => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        props.setThemeColor(0)
+        props.setThemeColor(props.isMobile ? 1 : 0)
         props.setTintColor(1)
     }, [])
 
     const onClickViewProjects = () => {
         navigate('/')
+    }
+
+    const onClickProjectLink = link => {
+        window.open(link, '_blank')
     }
 
     return (
@@ -167,6 +172,10 @@ export const HomeComponent = props => {
                                     <img src={imageSrc} />
                                     <div className='title-container'>
                                         <h3 className='title'>{title}</h3>
+                                        <ActionLink
+                                            onClick={() => onClickProjectLink(link)}
+                                            title='View Project'
+                                        />
                                     </div>
                                     <h4 className='subtitle'>{subtitle}</h4>
                                     <p className='description'>{description}</p>
