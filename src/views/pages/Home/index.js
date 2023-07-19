@@ -295,6 +295,7 @@ const Container = styled.div`
         height: auto;
         aspect-ratio: auto;
         width: 100%;
+        box-sizing: border-box;
     }
     & .project-container .title-container {
         margin-bottom: 5px;
