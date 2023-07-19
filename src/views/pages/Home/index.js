@@ -292,6 +292,7 @@ const Container = styled.div`
         border-radius: 20px;
         margin-bottom: 15px;
         border: 10px solid ${p => p.theme.bc};
+        height: auto;
     }
     & .project-container .title-container {
         margin-bottom: 5px;
