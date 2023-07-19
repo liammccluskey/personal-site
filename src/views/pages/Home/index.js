@@ -50,6 +50,10 @@ const SkillTiles = [
         level: 5
     },
     {
+        title: 'React Native',
+        level: 4
+    },
+    {
         title: 'Redux',
         level: 5
     },
@@ -163,7 +167,7 @@ export const HomeComponent = props => {
     ]
 
     useEffect(() => {
-        props.setThemeColor(props.isMobile ? 1 : 0)
+        props.setThemeColor(2)
         props.setTintColor(1)
     }, [props.isMobile])
 
