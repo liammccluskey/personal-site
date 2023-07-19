@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
+import { getIsMobile, getIsSemiMobile } from '../../../redux/theme'
 import { setThemeColor, setTintColor } from '../../../redux/theme'
 import { PageContainer } from '../../components/common/PageContainer'
 import { BodyContainer } from '../../components/common/BodyContainer'
@@ -48,7 +49,7 @@ const SkillTiles = [
     },
     {
         title: 'Vue.js',
-        level: 4,
+        level: 3,
     },
     {
         title: 'MongoDB',
@@ -107,7 +108,7 @@ export const HomeComponent = props => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        props.setThemeColor(1)
+        props.setThemeColor(0)
         props.setTintColor(1)
     }, [])
 
@@ -119,7 +120,7 @@ export const HomeComponent = props => {
         <PageContainer>
             <MainHeader />
             <BodyContainer>
-                <Container>
+                <Container className={`${props.isMobile && 'mobile'} ${props.isSemiMobile && 'semi-mobile'}`}>
                     <div className='left-container'>
                         <div className='float-container tile-container'>
                             <h3 className='title'>Education</h3>
@@ -192,7 +193,8 @@ const Root = styled.div`
     
 `
 const mapStateToProps = state => ({
-    
+    isMobile: getIsMobile(state),
+    isSemiMobile: getIsSemiMobile(state),
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -209,6 +211,12 @@ const Container = styled.div`
     height: 100%;
     box-sizing: border-box;
 
+    &.mobile {
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow: scroll;
+    }
+
     & .left-container {
         padding: 40px 0px;
         display: flex;
@@ -224,6 +232,17 @@ const Container = styled.div`
         align-items: stretch;
         flex: 1;
         overflow: scroll;
+    }
+    &.mobile .left-container,
+    &.mobile .right-container {
+        width: auto;
+        padding: 30px 0px;
+        height: auto !important;;
+        margin: 0px !important;
+        overflow: visible;
+    }
+    &.semi-mobile .left-container {
+        margin-right: 40px;
     }
 
     & .tile-container {
@@ -254,6 +273,9 @@ const Container = styled.div`
         grid-template-columns: 1fr 1fr;
         flex: 1;
     }
+    &.semi-mobile .projects-container {
+        grid-template-columns: 1fr;
+    }
 
     & .project-container {
         display: flex;
@@ -262,7 +284,9 @@ const Container = styled.div`
         padding: 20px;
         margin-right: 30px;
         margin-bottom: 30px;
-
+    }
+    &.semi-mobile .project-container {
+        margin-right: 0px;
     }
     & .project-container img {
         border-radius: 20px;

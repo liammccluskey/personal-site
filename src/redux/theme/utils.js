@@ -13,5 +13,5 @@ export const calculateIsMobile = windowWidth => {
 }
 
 export const calculateIsSemiMobile = windowWidth => {
-    return windowWidth < 801
+    return windowWidth < 1001
 }
