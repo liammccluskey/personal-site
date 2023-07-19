@@ -293,6 +293,8 @@ const Container = styled.div`
         margin-bottom: 15px;
         border: 10px solid ${p => p.theme.bc};
         height: auto;
+        aspect-ratio: auto;
+        width: 100%;
     }
     & .project-container .title-container {
         margin-bottom: 5px;
