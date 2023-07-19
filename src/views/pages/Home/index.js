@@ -88,7 +88,7 @@ const Projects = [
         subtitle: 'iOS Application',
         description: 'Published iOS application that allows users to practice chess puzzles, track their progress, compete against other players, and explore openings. All user data is stored locally, and in the cloud with Firebase.',
         imageSrc: require('../../../assets/screenshot-puzzledchesstrainer.png'),
-        tools: ['React.js', 'Redux', 'MongoDB', 'Node.js', 'Express.js', 'Netlify', 'Heroku', 'Firebase'],
+        tools: ['Swift', 'Firebase'],
     },
     {
         link: 'https://reducedreact.com',
