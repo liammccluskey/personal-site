@@ -60,7 +60,7 @@ th {
   /* dynamic */
   --ps-mainheader: 3%;
   --ps-subheader: 12%;
-  --ps-body: 12%;
+  --ps-body: 40px;
   --bgc: white;
   --bgc-nav: white;
 
