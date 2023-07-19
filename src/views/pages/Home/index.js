@@ -261,7 +261,7 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        overflow: visible;
+        overflow: visible !important;
     }
     & .tile-container .title {
         margin-bottom: 20px;
