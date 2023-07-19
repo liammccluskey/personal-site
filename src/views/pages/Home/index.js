@@ -112,7 +112,7 @@ export const HomeComponent = props => {
     }, [])
 
     const onClickViewProjects = () => {
-        navigate('/projects')
+        navigate('/')
     }
 
     return (
@@ -173,7 +173,6 @@ export const HomeComponent = props => {
                                         {tools.map(tool => (
                                             <PillLabel
                                                 title={tool}
-                                                color='blue'
                                                 size='m'
                                                 style={{marginRight: 10, marginBottom: 10}}
                                             />
@@ -211,6 +210,7 @@ const Container = styled.div`
     box-sizing: border-box;
 
     & .left-container {
+        padding: 40px 0px;
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -218,6 +218,7 @@ const Container = styled.div`
         margin-right: 75px;
     }
     & .right-container {
+        padding: 40px 0px;
         display: flex;
         flex-direction: column;
         align-items: stretch;

@@ -20,41 +20,46 @@ export const PillLabel = props => {
 const Root = styled.div`
     border: 1px solid;
     white-space: nowrap;
+    background-color: ${p => p.theme.tintTranslucent};
+    border-color: ${p => p.theme.tint};
+    & h6 {
+        color: ${p => p.theme.tint} !important;
+    }
 
     &.yellow {
         background-color: ${p => p.theme.yellowTranslucent};
         border-color: ${p => p.theme.textYellow};
     }
     &.yellow h6 {
-        color: ${p => p.theme.textYellow};
+        color: ${p => p.theme.textYellow} !important;
     }
     &.orange {
         background-color: ${p => p.theme.orangeTranslucent};
         border-color: ${p => p.theme.orange};
     }
     &.orange h6 {
-        color: ${p => p.theme.orange};
+        color: ${p => p.theme.orange} !important;
     }
     &.green {
         background-color: ${p => p.theme.greenTranslucent};
         border-color: ${p => p.theme.green};
     }
     &.green h6 {
-        color: ${p => p.theme.green};
+        color: ${p => p.theme.green} !important;
     }
     &.red {
         background-color: ${p => p.theme.brightRedTranslucent};
         border-color: ${p => p.theme.brightRed};
     }
     &.red h6 {
-        color: ${p => p.theme.brightRed};
+        color: ${p => p.theme.brightRed} !important;
     }
     &.blue {
         background-color: ${p => p.theme.blueTranslucent};
         border-color: ${p => p.theme.blue};
     }
     &.blue h6 {
-        color: ${p => p.theme.blue};
+        color: ${p => p.theme.blue} !important;
     }
 
     &.s {
