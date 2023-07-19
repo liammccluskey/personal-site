@@ -111,7 +111,7 @@ export const HomeComponent = props => {
     useEffect(() => {
         props.setThemeColor(props.isMobile ? 1 : 0)
         props.setTintColor(1)
-    }, [])
+    }, [props.isMobile])
 
     const onClickViewProjects = () => {
         navigate('/')
