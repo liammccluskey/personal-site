@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import styled from 'styled-components'
@@ -13,6 +13,7 @@ import { Button } from '../../components/common/Button'
 import {TileIndicator} from '../../components/common/TileIndicator'
 import {PillLabel} from '../../components/common/PillLabel'
 import {ActionLink} from '../../components/common/ActionLink'
+import {Pill} from '../../components/common/Pill'
 
 const Education = {
     title: 'Rutgers University - New Brunswick',
@@ -49,6 +50,10 @@ const SkillTiles = [
         level: 5
     },
     {
+        title: 'Redux',
+        level: 5
+    },
+    {
         title: 'Vue.js',
         level: 3,
     },
@@ -81,7 +86,7 @@ const Projects = [
         subtitle: 'Web Application',
         description: 'Web application that allows rowing athletes to connect their Concept2 device and join live group workout sessions, easily track their progress over time, and join a community of other rowers.',
         imageSrc: require('../../../assets/screenshot-ergsync.png'),
-        tools: ['React.js', 'Redux', 'MongoDB', 'Node.js', 'Express.js', 'Netlify', 'Heroku', 'Firebase'],
+        tools: ['React.js', 'MongoDB', 'Node.js', 'Express.js', 'Netlify', 'Heroku', 'Firebase'],
     },
     {
         link: 'https://apps.apple.com/us/app/puzzled-chess-trainer/id1493090358',
@@ -107,11 +112,83 @@ export const HomeComponent = props => {
         
     } = props
     const navigate = useNavigate()
+    const [reactPillActive, setReactPillActive] = useState(false)
+    const [vuePillActive, setVuePillActive] = useState(false)
+    const [swiftPillActive, setSwiftPillActive] = useState(false)
+    const [reduxPillActive, setReduxPillActive] = useState(false)
+    const [mongodbPillActive, setMongodbPillActive] = useState(false)
+    const [sqlPillActive, setSQLPillActive] = useState(false)
+    const [firebasePillActive, setFirebasePillActive] = useState(false)
+    const [filteredProjects, setFilteredProjects] = useState(Projects)
+
+    const frontendPills = [
+        {
+            title: 'React.js',
+            active: reactPillActive,
+            id: 'react'
+        },
+        {
+            title: 'Vue.js',
+            active: vuePillActive,
+            id: 'vue'
+        },
+        {
+            title: 'Swift',
+            active: swiftPillActive,
+            id: 'swift'
+        },
+        {
+            title: 'Redux',
+            active: reduxPillActive,
+            id: 'redux'
+        }
+    ]
+
+    const backendPills = [
+        {
+            title: 'MongoDB',
+            active: mongodbPillActive,
+            id: 'mongodb'
+        },
+        {
+            title: 'SQL',
+            active: sqlPillActive,
+            id: 'sql'
+        },
+        {
+            title: 'Firebase',
+            active: firebasePillActive,
+            id: 'firebase'
+        }
+    ]
 
     useEffect(() => {
         props.setThemeColor(props.isMobile ? 1 : 0)
         props.setTintColor(1)
     }, [props.isMobile])
+
+    useEffect(() => {
+        const activePills = [
+            [reactPillActive, 'React.js'],
+            [vuePillActive, 'Vue.js'],
+            [swiftPillActive, 'Swift'],
+            [reduxPillActive, 'Redux'],
+            [mongodbPillActive, 'MongoDB'],
+            [sqlPillActive, 'SQL'],
+            [firebasePillActive, 'Firebase']
+        ].filter( ([active]) => active )
+        .map( ([_, title]) => title)
+
+        const projects = Projects.filter( ({tools}) => {
+            console.log(activePills)
+            let hasAllFilters = true
+            activePills.forEach( (pillTitle) => {
+                if (!tools.includes(pillTitle)) hasAllFilters = false
+            })
+            return hasAllFilters
+        })
+        setFilteredProjects(projects)
+    }, [reactPillActive, vuePillActive, swiftPillActive, reduxPillActive, mongodbPillActive, sqlPillActive, firebasePillActive])
 
     const onClickViewProjects = () => {
         navigate('/')
@@ -119,6 +196,40 @@ export const HomeComponent = props => {
 
     const onClickProjectLink = link => {
         window.open(link, '_blank')
+    }
+
+    const onClickPill = pillID => {
+        switch (pillID) {
+            case 'react':
+                setReactPillActive(curr => !curr)
+                setVuePillActive(false)
+                setSwiftPillActive(false)
+                break
+            case 'vue':
+                setVuePillActive(curr => !curr)
+                setReactPillActive(false)
+                setSwiftPillActive(false)
+                break
+            case 'swift':
+                setSwiftPillActive(curr => !curr)
+                setReactPillActive(false)
+                setVuePillActive(false)
+                break
+            case 'redux':
+                setReduxPillActive(curr => !curr)
+                break
+            case 'mongodb':
+                setMongodbPillActive(curr => !curr)
+                setSQLPillActive(false)
+                break
+            case 'sql':
+                setSQLPillActive(curr => !curr)
+                setMongodbPillActive(false)
+                break
+            case 'firebase':
+                setFirebasePillActive(curr => !curr)
+                break
+        }
     }
 
     return (
@@ -140,7 +251,7 @@ export const HomeComponent = props => {
                                     title={title}
                                     numFilled={level}
                                     numTotal={5}
-                                    style={{marginBottom: 5}}
+                                    style={{marginBottom: 3}}
                                 />
                             ))}
                         </div>
@@ -151,7 +262,7 @@ export const HomeComponent = props => {
                                     title={title}
                                     numFilled={level}
                                     numTotal={5}
-                                    style={{marginBottom: 5}}
+                                    style={{marginBottom: 3}}
                                 />
                             ))}
                         </div>
@@ -166,8 +277,32 @@ export const HomeComponent = props => {
                                 onClick={onClickViewProjects}
                             />
                         </div>
+                        <div className='pills-container'>
+                            <div className='pills-row-container'>
+                                <p className='title'>Frontend: </p>
+                                {frontendPills.map(({title, active, id}) => (
+                                    <Pill
+                                        title={title}
+                                        active={active}
+                                        onClick={() => onClickPill(id)}
+                                        style={{marginRight: 5, marginBottom: 5}}
+                                    />
+                                ) )}
+                            </div>
+                            <div className='pills-row-container'>
+                            <p className='title'>Backend: </p>
+                                {backendPills.map(({title, active, id}) => (
+                                    <Pill
+                                        title={title}
+                                        active={active}
+                                        onClick={() => onClickPill(id)}
+                                        style={{marginRight: 5, marginBottom: 5}}
+                                    />
+                                ) )}
+                            </div>
+                        </div>
                         <div className='projects-container'>
-                            {Projects.map( ({link, title, subtitle, description, imageSrc, tools}) => (
+                            {filteredProjects.map( ({link, title, subtitle, description, imageSrc, tools}) => (
                                 <div className='float-container project-container'>
                                     <img src={imageSrc} />
                                     <div className='title-container'>
@@ -256,7 +391,7 @@ const Container = styled.div`
     }
 
     & .tile-container {
-        padding: 20px;
+        padding: 15px 20px;
         margin-bottom: 20px;
         display: flex;
         flex-direction: column;
@@ -264,17 +399,17 @@ const Container = styled.div`
         overflow: visible !important;
     }
     & .tile-container .title {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     & .secondary-text {
         color: ${p => p.theme.textSecondary};
-        margin-bottom: 5px;
+        margin-bottom: 3px;
     }
 
     & .main-text {
         color: ${p => p.theme.textMain};
-        margin-bottom: 5px;
+        margin-bottom: 3px;
     }
 
     & .title-container {
@@ -282,6 +417,24 @@ const Container = styled.div`
         justify-content: space-between;
         align-items: center;
         margin-bottom: 20px;
+    }
+
+    & .pills-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+
+    & .pills-row-container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    & .pills-row-container .title {
+        margin-right: 10px;
+        margin-bottom: 5px;
+        color: ${p => p.theme.textSecondary};
     }
 
     & .projects-container {
