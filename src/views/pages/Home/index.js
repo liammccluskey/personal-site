@@ -308,6 +308,7 @@ const Container = styled.div`
     }
     &.semi-mobile .project-container {
         margin: 0px;
+        margin-bottom: 30px;
     }
     & .project-container img {
         border-radius: 20px;
