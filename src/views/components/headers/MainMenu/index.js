@@ -118,10 +118,6 @@ const MenuContainer = styled.div`
         align-items: stretch;
     }
 
-    & .appearance-container {
-        border-bottom: 1px solid ${p => p.theme.bc};
-    }
-
     & .row-container {
         padding: 9px 15px;
         display: flex;
