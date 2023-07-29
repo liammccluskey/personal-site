@@ -72,6 +72,10 @@ const SkillTiles = [
     {
         title: 'Express.js',
         level: 5
+    },
+    {
+        title: 'Firebase',
+        level: 4
     }
 ]
 
