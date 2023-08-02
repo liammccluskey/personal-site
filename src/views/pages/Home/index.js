@@ -80,14 +80,14 @@ const SkillTiles = [
 ]
 
 const Projects = [
-    {
-        link: 'https://blackboxsolution.co',
-        title: 'Blackbox Solution',
-        subtitle: 'Web Application',
-        description: 'C Corporation with a website that allows users to submit their web application ideas to be built by our team at Blackbox Solution.',
-        imageSrc: require('../../../assets/screenshot-blackbox.png'),
-        tools: ['React.js', 'Redux', 'MongoDB', 'Node.js', 'Express.js', 'Netlify', 'Heroku', 'Firebase'],
-    },
+    // {
+    //     link: 'https://blackboxsolution.co',
+    //     title: 'Blackbox Solution',
+    //     subtitle: 'Web Application',
+    //     description: 'C Corporation with a website that allows users to submit their web application ideas to be built by our team at Blackbox Solution.',
+    //     imageSrc: require('../../../assets/screenshot-blackbox.png'),
+    //     tools: ['React.js', 'Redux', 'MongoDB', 'Node.js', 'Express.js', 'Netlify', 'Heroku', 'Firebase'],
+    // },
     {
         link: 'https://ergsync.com',
         title: 'Ergsync',
