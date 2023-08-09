@@ -35,13 +35,17 @@ const LanguageTiles = [
         level: 4
     },
     {
-        title: 'Swift',
-        level: 3
+        title: 'Java',
+        level: 4
     },
     {
         title: 'Python',
         level: 4
     }
+    {
+        title: 'Swift',
+        level: 3
+    },
 ]
 
 const SkillTiles = [
