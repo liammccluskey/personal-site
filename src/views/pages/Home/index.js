@@ -41,7 +41,7 @@ const LanguageTiles = [
     {
         title: 'Python',
         level: 4
-    }
+    },
     {
         title: 'Swift',
         level: 3
