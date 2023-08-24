@@ -66,6 +66,10 @@ const SkillTiles = [
         level: 3,
     },
     {
+        title: 'Spring Boot',
+        level: 4
+    },
+    {
         title: 'MongoDB',
         level: 5
     },
