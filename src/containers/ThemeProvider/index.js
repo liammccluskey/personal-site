@@ -11,7 +11,9 @@ import {
     setIsMobile,
     setIsSemiMobile,
     calculateIsMobile,
-    calculateIsSemiMobile
+    calculateIsSemiMobile,
+    setThemeColor,
+    setTintColor
 } from '../../redux/theme'
 
 export const ThemeProviderComponent = props => {
@@ -31,6 +33,11 @@ export const ThemeProviderComponent = props => {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+    useEffect(() => {
+        props.setThemeColor(0)
+        props.setTintColor(0)
+    }, [])
+
     return (
         <div>
             <StyledThemeProvider theme={props.theme}>
@@ -48,7 +55,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     setIsMobile,
-    setIsSemiMobile
+    setIsSemiMobile,
+    setThemeColor,
+    setTintColor
 }, dispatch)
 
 export const ThemeProvider = connect(mapStateToProps, mapDispatchToProps)(ThemeProviderComponent)

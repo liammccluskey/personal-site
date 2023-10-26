@@ -129,7 +129,6 @@ export const HomeComponent = props => {
     } = props
     const navigate = useNavigate()
     const [reactPillActive, setReactPillActive] = useState(false)
-    const [vuePillActive, setVuePillActive] = useState(false)
     const [swiftPillActive, setSwiftPillActive] = useState(false)
     const [reduxPillActive, setReduxPillActive] = useState(false)
     const [mongodbPillActive, setMongodbPillActive] = useState(false)
@@ -142,11 +141,6 @@ export const HomeComponent = props => {
             title: 'React.js',
             active: reactPillActive,
             id: 'react'
-        },
-        {
-            title: 'Vue.js',
-            active: vuePillActive,
-            id: 'vue'
         },
         {
             title: 'Swift',
@@ -186,7 +180,6 @@ export const HomeComponent = props => {
     useEffect(() => {
         const activePills = [
             [reactPillActive, 'React.js'],
-            [vuePillActive, 'Vue.js'],
             [swiftPillActive, 'Swift'],
             [reduxPillActive, 'Redux'],
             [mongodbPillActive, 'MongoDB'],
@@ -204,7 +197,7 @@ export const HomeComponent = props => {
             return hasAllFilters
         })
         setFilteredProjects(projects)
-    }, [reactPillActive, vuePillActive, swiftPillActive, reduxPillActive, mongodbPillActive, sqlPillActive, firebasePillActive])
+    }, [reactPillActive, swiftPillActive, reduxPillActive, mongodbPillActive, sqlPillActive, firebasePillActive])
 
     const onClickViewProjects = () => {
         navigate('/')
@@ -218,18 +211,11 @@ export const HomeComponent = props => {
         switch (pillID) {
             case 'react':
                 setReactPillActive(curr => !curr)
-                setVuePillActive(false)
-                setSwiftPillActive(false)
-                break
-            case 'vue':
-                setVuePillActive(curr => !curr)
-                setReactPillActive(false)
                 setSwiftPillActive(false)
                 break
             case 'swift':
                 setSwiftPillActive(curr => !curr)
                 setReactPillActive(false)
-                setVuePillActive(false)
                 break
             case 'redux':
                 setReduxPillActive(curr => !curr)

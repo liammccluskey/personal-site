@@ -115,15 +115,15 @@ export const Themes = {
 export const Tints = {
     0: {
         value: 0,
-        name: 'Mint',
-        tint: Colors.mint,
-        tintTranslucent: Colors.mintTranslucent
-    },
-    1: {
-        value: 1,
         name: 'Blue',
         tint: Colors.blue,
         tintTranslucent: Colors.blueTranslucent
+    },
+    1: {
+        value: 1,
+        name: 'Mint',
+        tint: Colors.mint,
+        tintTranslucent: Colors.mintTranslucent
     },
     2: {
         value: 2,
