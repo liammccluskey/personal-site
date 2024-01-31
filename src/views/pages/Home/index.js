@@ -173,11 +173,6 @@ export const HomeComponent = props => {
     ]
 
     useEffect(() => {
-        props.setThemeColor(2)
-        props.setTintColor(1)
-    }, [props.isMobile])
-
-    useEffect(() => {
         const activePills = [
             [reactPillActive, 'React.js'],
             [swiftPillActive, 'Swift'],
