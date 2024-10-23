@@ -88,14 +88,14 @@ const SkillTiles = [
 ]
 
 const Projects = [
-    {
-        link: 'https://codejabba.com',
-        title: 'Code Jabba',
-        subtitle: 'Web Application',
-        description: 'Job board for software engineers that allows users to search for jobs by coding language and skill/framework.',
-        imageSrc: require('../../../assets/screenshot-codejabba.png'),
-        tools: ['React.js', 'Redux', 'MongoDB', 'Node.js', 'Express.js', 'Netlify', 'Heroku', 'Firebase'],
-    },
+    // {
+    //     link: 'https://codejabba.com',
+    //     title: 'Code Jabba',
+    //     subtitle: 'Web Application',
+    //     description: 'Job board for software engineers that allows users to search for jobs by coding language and skill/framework.',
+    //     imageSrc: require('../../../assets/screenshot-codejabba.png'),
+    //     tools: ['React.js', 'Redux', 'MongoDB', 'Node.js', 'Express.js', 'Netlify', 'Heroku', 'Firebase'],
+    // },
     {
         link: 'https://blackboxsolution.co',
         title: 'Blackbox Solution',
